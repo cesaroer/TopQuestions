@@ -20,7 +20,7 @@ class TopQuestionsController: UITableViewController  {
     }
     
     func setUp() {
-        //TODO: Prepare View
+        //TODO: Prepare view with downloaded content
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
