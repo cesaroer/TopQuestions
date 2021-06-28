@@ -6,43 +6,37 @@
 //
 
 import UIKit
-import Combine
 
 class TopQuestionsController: UITableViewController  {
     
     private let cellIdentifier = "questionCellView"
     private let segueIdentifier = "showQuestionDetail"
     
-    private var dataModel = QuestionsDataModel()
-    private var questions : [Question] = []
-    
-    private var subscriptions = Set<AnyCancellable>()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         title = "Top Questions"
-        
         setUp()
     }
     
     func setUp() {
-        dataModel.fetchTopQuestions()
-        dataModel.$questions.sink { [weak self] value in
-            self?.questions = value
-            self?.tableView.reloadData()
-        }.store(in: &subscriptions)
+        //TODO: Prepare View
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! QuestionCellView
         cell.accessoryType = .disclosureIndicator
-        cell.update(with: questions[indexPath.row])
+        cell.questionTitleLabel.text = "How to Resize Image with Swift UI"
+        cell.questionTagsLabel.text = "swift,xcode,ui"
+        cell.questionTimeStampLabel.text = "Jun 4 2021"
+        cell.questionsUpsLabel.text = "🆙 14K"
+        cell.questionsCommentsLabel.text = "💬 10K"
+        cell.questionsViewLabel.text = "👀 5K"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return 10
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,13 +49,5 @@ class TopQuestionsController: UITableViewController  {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier {
-            if let targetController = segue.destination as? DetailQuestionViewController {
-                if let index = self.tableView.indexPathForSelectedRow?.row {
-                    targetController.question = questions[index]
-                }
-            }
-        }
     }
-    
 }

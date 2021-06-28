@@ -53,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89EDA4DB268A33B9000A26C5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				89F9111F268667EC00B40A31 /* QuestionCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		89F910FE2686609300B40A31 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +95,8 @@
 		89F9111E268667D300B40A31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89EDA4DB268A33B9000A26C5 /* Cell */,
 				89F9110E2686609300B40A31 /* TopQuestionsController.swift */,
-				89F9111F268667EC00B40A31 /* QuestionCellView.swift */,
 				89F9112126866F9600B40A31 /* DetailQuestionViewController.swift */,
 			);
 			path = View;
