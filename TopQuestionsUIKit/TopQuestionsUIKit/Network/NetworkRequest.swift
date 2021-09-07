@@ -14,7 +14,7 @@ import UIKit
 // MARK: - APIURLResources
 struct APIURLResources {
     static func getQuestionsURL() -> URL {
-        var components = URLComponents(string: "https://api.stackexchange.com/2.2")!
+        var components = URLComponents(string: "https://api.stackexchange.com/questions")!
         components.queryItems = [
             URLQueryItem(name: "site", value: "stackoverflow"),
             URLQueryItem(name: "order", value: "desc"),
@@ -26,7 +26,7 @@ struct APIURLResources {
     }
     
     static func getQuestionsDetailURL(id: Int) -> URL {
-        var components = URLComponents(string: "https://api.stackexchange.com/2.2/questions/\(id)")!
+        var components = URLComponents(string: "https://api.stackexchange.com/questions/\(id)")!
         components.queryItems = [
             URLQueryItem(name: "site", value: "stackoverflow"),
             URLQueryItem(name: "order", value: "desc"),
